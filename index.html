@@ -16,6 +16,7 @@
     </style>
   </head>
   <body>
+    <input type="text" id="txtAd" value="İsim Giriniz">
     <ul id="messages"></ul>
     <form id="form" action="">
       <input id="input" autocomplete="off" /><button>Send</button>
@@ -28,11 +29,12 @@
       var messages = document.getElementById('messages');
       var form = document.getElementById('form');
       var input = document.getElementById('input');
+      var nick=document.getElementById("txtAd");
 
       form.addEventListener('submit', function(e) {
         e.preventDefault();
         if (input.value) {
-          socket.emit('chat message', 'CauSXOXO'+input.value);
+          socket.emit('chat message',nick': '+input.value);
           socket.emit('username','meye');
           input.value = '';
         }
